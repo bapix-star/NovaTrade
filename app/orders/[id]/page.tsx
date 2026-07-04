@@ -80,7 +80,7 @@ export default function OrderDetailPage() {
       setTxHash(null);
       const res = await action();
       setTxHash(res.hash);
-      telemetry.log('transaction', successMsg, { orderId: order.id, txHash: res.hash });
+      telemetry.log('transaction', successMsg, { orderId: order?.id, txHash: res.hash });
       toast.success(successMsg);
       await loadOrder();
       await refetchEscrow();
