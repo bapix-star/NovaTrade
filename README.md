@@ -6,7 +6,7 @@ NovaTrade is a decentralized trade coordination and financing protocol built on 
 
 ## 📌 Submission Details & Quick Links
 
-*   **🌐 Live Production Link**: []()
+*   **🌐 Live Production Link**: [https://nova-trade-tau.vercel.app/](https://nova-trade-tau.vercel.app/)
 *   **📹 Demo Video Presentation**: []()
 *   **💻 GitHub Repository**: [https://github.com/bapix-star/NovaTrade](https://github.com/bapix-star/NovaTrade)
 
