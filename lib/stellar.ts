@@ -14,7 +14,7 @@ import {
 
 export class StellarHelper {
   private server: StellarSdk.Horizon.Server;
-  private rpcServer: StellarSdk.SorobanRpc.Server;
+  private rpcServer: StellarSdk.rpc.Server;
   private kit: StellarWalletsKit | null = null;
 
   constructor() {
