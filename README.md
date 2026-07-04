@@ -48,7 +48,7 @@ Below are screenshots demonstrating the mobile-responsive web interface, built u
 ### ⚙️ CI/CD Pipeline
 Our GitHub Actions workflow automatically builds the Next.js frontend, runs the lint checkers, compiles the Rust contracts to WebAssembly, and runs both cargo and unit tests upon pushing commits to the main repository:
 
-![CI/CD Pipeline Running](./assets/cicdss.png)
+![CI/CD Pipeline Running](./assets/pipeline.png)
 
 ---
 
