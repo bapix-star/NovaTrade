@@ -220,7 +220,7 @@ $ npm run test
 ---
 
 ## 👨‍💻 Author
-**BhagatWeb** — [GitHub Profile](https://github.com/BhagatWeb)
+**Bapi Kumar** — [GitHub Profile](https://github.com/bapix-star)
 
 ---
 
