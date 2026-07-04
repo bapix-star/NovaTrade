@@ -38,10 +38,10 @@ NovaTrade establishes trust by locking Buyer funds in an on-chain Escrow vault a
 Below are screenshots demonstrating the mobile-responsive web interface, built using a clean monochromatic layout matching Stitch guidelines:
 
 #### Home & Connect Page
-![Mobile UI 1](./assets/mobui1.png)
+![Mobile UI 1](./assets/mobile-1-hero.png)
 
 #### Order Dashboard
-![Mobile UI 2](./assets/mobui2.png)
+![Mobile UI 2](./assets/mobile-2-dashboard.png)
 
 ---
 
@@ -55,13 +55,13 @@ Our GitHub Actions workflow automatically builds the Next.js frontend, runs the 
 ### 🖥️ Desktop Web UI (Clean Monochromatic Redesign)
 
 #### Landing Screen
-![Desktop UI 1](./assets/ui1.png)
+![Desktop UI 1](./assets/hero-1.png)
 
 #### Main Dashboard Overview
-![Desktop UI 2](./assets/ui2.png)
+![Desktop UI 2](./assets/dashboard.png)
 
 ### 📊 System Telemetry & Live Analytics Dashboard
-![System Telemetry](./assets/analytics.png)
+![System Telemetry](./assets/analytics-n.png)
 
 ---
 
