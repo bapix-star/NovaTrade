@@ -187,8 +187,8 @@ $ npm run test
 
 1. **Clone the Repository and Navigate to the Directory**:
    ```bash
-   git clone https://github.com/BhagatWeb/-ChainTrace-.git
-   cd -ChainTrace-
+   git clone https://github.com/bapix-star/NovaTrade.git
+   cd NovaTrade
    ```
 
 2. **Configure Environment Variables**:

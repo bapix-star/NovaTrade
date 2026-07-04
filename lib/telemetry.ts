@@ -8,7 +8,7 @@ export interface TelemetryEvent {
   metadata?: Record<string, any>;
 }
 
-const STORAGE_KEY = 'chaintrace_telemetry';
+const STORAGE_KEY = 'novatrade_telemetry';
 
 export const telemetry = {
   getEvents(): TelemetryEvent[] {
