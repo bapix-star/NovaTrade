@@ -171,7 +171,7 @@ export default function AnalyticsPage() {
                       : 'text-slate-500 hover:bg-slate-50'
                   }`}
                 >
-                  {t === 'wallet_connect' ? 'Wallets' : t + 's'}
+                  {t === 'all' ? 'All' : t === 'wallet_connect' ? 'Wallets' : t + 's'}
                 </button>
               ))}
             </div>
@@ -227,7 +227,9 @@ export default function AnalyticsPage() {
             <h3 className="font-bold text-slate-900 text-sm uppercase tracking-wider">Level 4 Checklist Status</h3>
             <div className="space-y-3">
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-emerald-600 text-lg">check_circle</span>
+                <span className={`material-symbols-outlined text-lg ${events.length > 0 ? 'text-emerald-600' : 'text-slate-300'}`}>
+                  {events.length > 0 ? 'check_circle' : 'radio_button_unchecked'}
+                </span>
                 <span className="text-xs font-semibold text-slate-700">Telemetry &amp; Logs Integrated</span>
               </div>
               <div className="flex items-center gap-3">
@@ -235,12 +237,20 @@ export default function AnalyticsPage() {
                 <span className="text-xs font-semibold text-slate-700">Mobile Responsive UI Verified</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-blue-600 text-lg">sync</span>
-                <span className="text-xs font-semibold text-slate-700">10+ User Interactions Simulation</span>
+                <span className={`material-symbols-outlined text-lg ${events.length >= 10 ? 'text-emerald-600' : 'text-blue-600'}`}>
+                  {events.length >= 10 ? 'check_circle' : 'sync'}
+                </span>
+                <span className="text-xs font-semibold text-slate-700">
+                  {events.length >= 10 ? '10+ User Interactions Achieved' : `${events.length}/10 User Interactions Captured`}
+                </span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-slate-300 text-lg">radio_button_unchecked</span>
-                <span className="text-xs font-semibold text-slate-700">DeFi Factoring Contract (Pending Deployment)</span>
+                <span className={`material-symbols-outlined text-lg ${events.some(e => e.type === 'transaction') ? 'text-emerald-600' : 'text-slate-300'}`}>
+                  {events.some(e => e.type === 'transaction') ? 'check_circle' : 'radio_button_unchecked'}
+                </span>
+                <span className="text-xs font-semibold text-slate-700">
+                  {events.some(e => e.type === 'transaction') ? 'Smart Contract Successfully Interacted' : 'DeFi Factoring Contract (Pending Deployment)'}
+                </span>
               </div>
             </div>
           </div>

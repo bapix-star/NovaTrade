@@ -9,6 +9,7 @@ import { useEscrow } from '@/hooks/useEscrow';
 import { useContractEvents } from '@/hooks/useContractEvents';
 import { ORDER_CONTRACT_ID } from '@/lib/constants';
 import { stellar } from '@/lib/stellar';
+import { telemetry } from '@/lib/telemetry';
 import { Badge } from '@/components/ui/Badge';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
@@ -79,11 +80,13 @@ export default function OrderDetailPage() {
       setTxHash(null);
       const res = await action();
       setTxHash(res.hash);
+      telemetry.log('transaction', successMsg, { orderId: order.id, txHash: res.hash });
       toast.success(successMsg);
       await loadOrder();
       await refetchEscrow();
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Action failed';
+      telemetry.log('error', `Contract invocation failed: ${msg}`, { orderId: order?.id });
       toast.error(msg);
     } finally {
       setActionLoading(false);

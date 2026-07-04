@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useWallet } from '@/hooks/useWallet';
 import { orderClient } from '@/lib/contracts/order-client';
+import { telemetry } from '@/lib/telemetry';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
 
@@ -43,10 +44,12 @@ export default function CreateOrderPage() {
         amountXlm,
       });
 
+      telemetry.log('transaction', `Successfully created Supply Chain Order`, { amount: amountXlm, supplier: supplier.slice(0, 6) + '...' });
       toast.success('Order created successfully!');
       router.push('/dashboard');
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : 'Failed to create order';
+      telemetry.log('error', `Failed to create Supply Chain Order: ${msg}`, { amount: amountXlm });
       toast.error(msg);
     } finally {
       setLoading(false);
