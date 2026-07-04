@@ -73,81 +73,87 @@ export default function CreateOrderPage() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1">
-              <div className="flex justify-between items-center">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
-                  Supplier Address
-                </label>
-                <select 
-                  className="text-xs bg-slate-100 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600"
-                  onChange={(e) => { if(e.target.value) setSupplier(e.target.value) }}
-                  value=""
-                >
-                  <option value="" disabled>Load Demo Contact...</option>
-                  <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Supplier Profile (GAUTV...O6J)</option>
-                  <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics (GAYPC...6KA)</option>
-                </select>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Supplier Address
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="G..."
+                  value={supplier}
+                  onChange={(e) => setSupplier(e.target.value)}
+                  disabled={loading}
+                  className="field-input font-mono pr-36"
+                  required
+                />
+                <div className="absolute inset-y-0 right-2 flex items-center">
+                  <select 
+                    className="text-xs bg-slate-100/80 hover:bg-slate-200/80 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600 transition-colors"
+                    onChange={(e) => { if(e.target.value) setSupplier(e.target.value) }}
+                    value=""
+                  >
+                    <option value="" disabled>Address Book ▾</option>
+                    <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Supplier Profile</option>
+                    <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics</option>
+                  </select>
+                </div>
               </div>
-              <input
-                type="text"
-                placeholder="G..."
-                value={supplier}
-                onChange={(e) => setSupplier(e.target.value)}
-                disabled={loading}
-                className="field-input font-mono"
-                required
-              />
             </div>
 
             <div className="space-y-1">
-              <div className="flex justify-between items-center">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
-                  Logistics Shipper Address
-                </label>
-                <select 
-                  className="text-xs bg-slate-100 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600"
-                  onChange={(e) => { if(e.target.value) setShipper(e.target.value) }}
-                  value=""
-                >
-                  <option value="" disabled>Load Demo Contact...</option>
-                  <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics (GAYPC...6KA)</option>
-                  <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Supplier Profile (GAUTV...O6J)</option>
-                </select>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Logistics Shipper Address
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="G..."
+                  value={shipper}
+                  onChange={(e) => setShipper(e.target.value)}
+                  disabled={loading}
+                  className="field-input font-mono pr-36"
+                  required
+                />
+                <div className="absolute inset-y-0 right-2 flex items-center">
+                  <select 
+                    className="text-xs bg-slate-100/80 hover:bg-slate-200/80 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600 transition-colors"
+                    onChange={(e) => { if(e.target.value) setShipper(e.target.value) }}
+                    value=""
+                  >
+                    <option value="" disabled>Address Book ▾</option>
+                    <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics</option>
+                    <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Supplier Profile</option>
+                  </select>
+                </div>
               </div>
-              <input
-                type="text"
-                placeholder="G..."
-                value={shipper}
-                onChange={(e) => setShipper(e.target.value)}
-                disabled={loading}
-                className="field-input font-mono"
-                required
-              />
             </div>
 
             <div className="space-y-1">
-              <div className="flex justify-between items-center">
-                <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
-                  Inspector Address
-                </label>
-                <select 
-                  className="text-xs bg-slate-100 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600"
-                  onChange={(e) => { if(e.target.value) setInspector(e.target.value) }}
-                  value=""
-                >
-                  <option value="" disabled>Load Demo Contact...</option>
-                  <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Port Inspector (GAUTV...O6J)</option>
-                  <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics (GAYPC...6KA)</option>
-                </select>
+              <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
+                Inspector Address
+              </label>
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="G..."
+                  value={inspector}
+                  onChange={(e) => setInspector(e.target.value)}
+                  disabled={loading}
+                  className="w-full h-12 bg-white border border-slate-200 rounded-lg pl-4 pr-36 text-slate-900 outline-none active-ring focus:border-black transition-all font-mono text-sm"
+                  required
+                />
+                <div className="absolute inset-y-0 right-2 flex items-center">
+                  <select 
+                    className="text-xs bg-slate-100/80 hover:bg-slate-200/80 border border-slate-200 rounded px-2 py-1 outline-none cursor-pointer text-slate-600 transition-colors"
+                    onChange={(e) => { if(e.target.value) setInspector(e.target.value) }}
+                    value=""
+                  >
+                    <option value="" disabled>Address Book ▾</option>
+                    <option value="GAUTVVO7UG5S67XVVTF2KYD2SBIVVE623KEIMDY3OG3QNAGUVDZ2JO6J">Port Inspector</option>
+                    <option value="GAYPCDGQ2MT3COTCRZW3YX2WHA2W2YYTUVOGFN7AXZ3GYHT72ICXK6KA">Global Logistics</option>
+                  </select>
+                </div>
               </div>
-              <input
-                type="text"
-                placeholder="G..."
-                value={inspector}
-                onChange={(e) => setInspector(e.target.value)}
-                disabled={loading}
-                className="w-full h-12 bg-white border border-slate-200 rounded-lg px-4 text-slate-900 outline-none active-ring focus:border-black transition-all font-mono text-sm"
-                required
-              />
             </div>
 
             <div className="space-y-1">
