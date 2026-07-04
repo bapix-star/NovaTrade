@@ -6,11 +6,11 @@ NovaTrade is a decentralized trade coordination and financing protocol built on 
 
 ## 📌 Submission Details & Quick Links
 
-*   **🌐 Live Production Link**: [https://nova-trade-demo.netlify.app/](https://nova-trade-demo.netlify.app/)
-*   **📹 Demo Video Presentation**: [Google Drive Video Demo](#)
-*   **💻 GitHub Repository**: [https://github.com/BhagatWeb/-ChainTrace-](https://github.com/BhagatWeb/-ChainTrace-)
-*   **📝 Feedback Form Link**: [Google Form](#)
-*   **📊 Feedback Responses**: [Google Sheet Responses](#)
+*   **🌐 Live Production Link**: []()
+*   **📹 Demo Video Presentation**: []()
+*   **💻 GitHub Repository**: []()
+*   **📝 Feedback Form Link**: []()
+*   **📊 Feedback Responses**: []()
 
 ---
 
