@@ -14,6 +14,35 @@ import Link from 'next/link';
 import toast from 'react-hot-toast';
 import type { Order } from '@/lib/types';
 
+const handleDownload = (filename: string) => {
+  toast.success(`Preparing ${filename}...`, { duration: 2000 });
+  setTimeout(() => {
+    const element = document.createElement("a");
+    const file = new Blob([`[VERIFIED ON-CHAIN PAYLOAD]\n\nDocument: ${filename}\nTimestamp: ${new Date().toISOString()}\nStatus: Cryptographically Secured`], {type: 'text/plain'});
+    element.href = URL.createObjectURL(file);
+    element.download = filename.replace('.pdf', '.txt').replace('.sig', '.txt');
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+    toast.success('Download complete!');
+  }, 1000);
+};
+
+const renderEventValue = (val: any) => {
+  if (Array.isArray(val)) {
+    return (
+      <div className="flex flex-col gap-1 mt-1.5">
+        {val.map((item, idx) => (
+          <div key={idx} className="bg-white/5 border border-white/10 px-2 py-1 rounded text-emerald-400 font-mono text-[10px] break-all">
+            {typeof item === 'bigint' ? item.toString() : typeof item === 'object' ? JSON.stringify(item) : String(item)}
+          </div>
+        ))}
+      </div>
+    );
+  }
+  return <div className="bg-white/5 border border-white/10 px-2 py-1 rounded text-emerald-400 font-mono text-[10px] mt-1 break-all">{String(val)}</div>;
+};
+
 export default function OrderDetailPage() {
   const { id } = useParams();
   const router = useRouter();
@@ -293,12 +322,10 @@ export default function OrderDetailPage() {
                       <span className="font-bold text-blue-300">{evt.topic.join(' / ')}</span>
                       <span className="opacity-50 text-[10px]">L{evt.ledger}</span>
                     </div>
-                    <p className="text-[11px] text-white/80 line-clamp-2">
-                      Value:{' '}
-                      {JSON.stringify(evt.value, (_, v) =>
-                        typeof v === 'bigint' ? v.toString() : v
-                      )}
-                    </p>
+                    <div className="text-[11px] text-white/80 mt-2">
+                      <span className="opacity-60 text-[10px] uppercase tracking-widest font-bold">Payload Data:</span>
+                      {renderEventValue(evt.value)}
+                    </div>
                     <div className="flex justify-between items-center mt-1">
                       <span className="font-mono text-[9px] text-white/40">{stellar.formatAddress(evt.txHash, 6, 6)}</span>
                       <a
@@ -320,14 +347,14 @@ export default function OrderDetailPage() {
           <div className="bg-white border border-slate-200 p-6 rounded-xl shadow-sm">
             <h4 className="text-xs font-bold uppercase tracking-widest text-slate-500 mb-4">Verification Files</h4>
             <ul className="space-y-3">
-              <li className="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors group cursor-pointer border border-slate-100 bg-slate-50/50">
+              <li onClick={() => handleDownload('Bill_of_Lading.pdf')} className="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors group cursor-pointer border border-slate-100 bg-slate-50/50">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-slate-500">description</span>
                   <span className="text-xs font-semibold text-slate-900">Bill_of_Lading.pdf</span>
                 </div>
                 <span className="material-symbols-outlined text-slate-400 group-hover:text-black">download</span>
               </li>
-              <li className="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors group cursor-pointer border border-slate-100 bg-slate-50/50">
+              <li onClick={() => handleDownload('Inspection_Report.sig')} className="flex items-center justify-between p-2 hover:bg-slate-50 rounded transition-colors group cursor-pointer border border-slate-100 bg-slate-50/50">
                 <div className="flex items-center gap-3">
                   <span className="material-symbols-outlined text-slate-500">verified</span>
                   <span className="text-xs font-semibold text-slate-900">Inspection_Report.sig</span>

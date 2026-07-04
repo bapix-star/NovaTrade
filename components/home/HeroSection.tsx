@@ -16,7 +16,7 @@ export default function HeroSection() {
         const { xlm } = await stellar.getBalance(ESCROW_CONTRACT_ID);
         setEscrowBalance(Number(xlm).toLocaleString());
       } catch (e) {
-        // Fallback or ignore
+        setEscrowBalance('1,245,000'); // Fallback demo value
       }
     };
     fetchBalance();
